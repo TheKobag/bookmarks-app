@@ -1,0 +1,8 @@
+.mat-card-header-text {
+  display: flex;
+  flex-flow: column;
+}
+
+.mat-raised-button:focus, .mat-fab:focus {
+  outline: unset;
+}

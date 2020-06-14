@@ -1,0 +1,22 @@
+{
+  "bookmarks": [
+    {
+      "id": 1,
+      "name": "Google",
+      "url": "https://www.google.es/",
+      "group": "Work"
+    },
+    {
+      "id": 2,
+      "name": "GitHub",
+      "url": "https://github.com/",
+      "group": "Work"
+    },
+    {
+      "id": 3,
+      "name": "Xataka",
+      "url": "https://www.xataka.com/",
+      "group": "Personal"
+    }
+  ]
+}

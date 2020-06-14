@@ -1,0 +1,49 @@
+<mat-tab-group mat-align-tabs="start">
+  <mat-tab label="Work">
+    <div class="cards-wrapper">
+      <div *ngFor="let bm of bookmarks">
+        <div *ngIf="bm.group == 'Work'" class="card-wrapper">
+          <mat-card-header class="card-title-wrapper">
+            <mat-card-title>{{ bm.name }}</mat-card-title>
+            <mat-card-subtitle>{{ bm.group }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="card-content-wrapper">
+            <a href="">{{ bm.url }}</a>
+          </mat-card-content>
+          <mat-card-actions class="card-actions-wrapper">
+            <button mat-raised-button (click)="edit($event)">EDIT</button>
+            <button mat-raised-button (click)="remove(bm)">REMOVE</button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Personal">
+    <div class="cards-wrapper">
+      <div *ngFor="let bm of bookmarks">
+        <div *ngIf="bm.group == 'Personal'" class="card-wrapper">
+          <mat-card-header class="card-title-wrapper">
+            <mat-card-title>{{ bm.name }}</mat-card-title>
+            <mat-card-subtitle>{{ bm.group }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content class="card-content-wrapper">
+            <a href="">{{ bm.url }}</a>
+          </mat-card-content>
+          <mat-card-actions class="card-actions-wrapper">
+            <button mat-raised-button (click)="edit($event)">EDIT</button>
+            <button mat-raised-button (click)="remove(bm)">REMOVE</button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+
+<button
+  mat-fab
+  color="primary"
+  class="bookmark-button"
+  (click)="openAddBookmarkDialog($event)"
+>
+  <mat-icon>bookmark</mat-icon>
+</button>

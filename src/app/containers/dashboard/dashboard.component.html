@@ -1,0 +1,3 @@
+<app-bookmarks-list [bookmarks]="bookmarks$ | async"
+  (addBookmark)="addBookmark($event)"
+  (removeBookmark)="removeBookmark($event)"></app-bookmarks-list>

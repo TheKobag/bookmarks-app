@@ -1,0 +1,29 @@
+<form class="bookmark-form" [formGroup]="bookmarkForm" (ngSubmit)="onSubmit()">
+  <mat-form-field color="accent">
+    <mat-label>Name</mat-label>
+    <input matInput [formControl]="bookmarkForm.controls['name']" />
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <mat-label>Url</mat-label>
+    <input matInput [formControl]="bookmarkForm.controls['url']" />
+  </mat-form-field>
+  <mat-form-field color="accent">
+    <mat-label>Group</mat-label>
+    <mat-select [formControl]="bookmarkForm.controls['group']">
+      <mat-option *ngFor="let group of groups" [value]="group">
+        {{ group.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="form-buttons-wrapper">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!bookmarkForm.valid"
+    >
+      Submit
+    </button>
+    <button mat-raised-button (click)="onCancel()">Cancel</button>
+  </div>
+</form>

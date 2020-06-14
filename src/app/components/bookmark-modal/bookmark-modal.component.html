@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Enter a new bookmark</h1>
+<div mat-dialog-content>
+  <app-bookmark-form [form]="formState"
+  (actionsEmitted)="onFormActions($event)"
+  (formSubmitted)="onFormSubmitted()"
+  (formCancelled)="onFormCancelled()"
+  >
+</app-bookmark-form>
+</div>
+
