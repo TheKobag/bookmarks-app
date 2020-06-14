@@ -2,6 +2,7 @@
 
 The application is structured in four main components,
   Dashboard Component, is the main container of the feature and handles the store actions.
+
   ![Dashboard](/src/assets/images/dashboard.png)
 
   </br>
@@ -68,3 +69,4 @@ Just click on REMOVE button in the bookmark you want to delete.
 
 
 You can visit a working copy of the app at:
+https://stackblitz.com/edit/bookmarks-app
