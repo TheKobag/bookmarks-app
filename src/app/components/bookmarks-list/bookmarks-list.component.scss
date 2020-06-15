@@ -1,5 +1,6 @@
 .cards-wrapper {
   display: flex;
+  
   .card-wrapper {
     display: flex;
     flex-flow: column;
@@ -25,7 +26,5 @@
 }
 
 .bookmark-button {
-  position: fixed;
-  bottom: 0;
   margin: 20px;
 }

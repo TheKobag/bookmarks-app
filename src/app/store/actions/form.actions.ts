@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { IGroup } from "../state/form.state";
+import { IGroup } from "../../models/group.interface";
 
 export const FORM_NAME_CHANGED = "FORM_NAME_CHANGED";
 export const FORM_URL_CHANGED = "FORM_URL_CHANGED";

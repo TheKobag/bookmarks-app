@@ -1,8 +1,8 @@
 <mat-tab-group mat-align-tabs="start">
-  <mat-tab label="Work">
+  <mat-tab label="{{gr.name}}" *ngFor="let gr of groups">
     <div class="cards-wrapper">
       <div *ngFor="let bm of bookmarks">
-        <div *ngIf="bm.group == 'Work'" class="card-wrapper">
+        <div *ngIf="bm.group == gr.name" class="card-wrapper">
           <mat-card-header class="card-title-wrapper">
             <mat-card-title>{{ bm.name }}</mat-card-title>
             <mat-card-subtitle>{{ bm.group }}</mat-card-subtitle>
@@ -11,39 +11,27 @@
             <a href="">{{ bm.url }}</a>
           </mat-card-content>
           <mat-card-actions class="card-actions-wrapper">
-            <button mat-raised-button (click)="edit($event)">EDIT</button>
             <button mat-raised-button (click)="remove(bm)">REMOVE</button>
           </mat-card-actions>
         </div>
       </div>
     </div>
-  </mat-tab>
-  <mat-tab label="Personal">
-    <div class="cards-wrapper">
-      <div *ngFor="let bm of bookmarks">
-        <div *ngIf="bm.group == 'Personal'" class="card-wrapper">
-          <mat-card-header class="card-title-wrapper">
-            <mat-card-title>{{ bm.name }}</mat-card-title>
-            <mat-card-subtitle>{{ bm.group }}</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content class="card-content-wrapper">
-            <a href="">{{ bm.url }}</a>
-          </mat-card-content>
-          <mat-card-actions class="card-actions-wrapper">
-            <button mat-raised-button (click)="edit($event)">EDIT</button>
-            <button mat-raised-button (click)="remove(bm)">REMOVE</button>
-          </mat-card-actions>
-        </div>
-      </div>
-    </div>
-  </mat-tab>
-</mat-tab-group>
 
 <button
   mat-fab
   color="primary"
   class="bookmark-button"
-  (click)="openAddBookmarkDialog($event)"
+  (click)="openAddBookmarkDialog()"
 >
   <mat-icon>bookmark</mat-icon>
 </button>
+  </mat-tab>
+  <mat-tab disabled>
+   <ng-template mat-tab-label>
+     <button mat-icon-button (click)="addGroup()" [disabled]="!newGroup" color="primary">
+       <mat-icon>add_circle</mat-icon>
+     </button>
+     <input matInput color="secondary" placeholder="type to create a new group" [(ngModel)]="newGroup"/>
+   </ng-template>
+  </mat-tab>
+</mat-tab-group>

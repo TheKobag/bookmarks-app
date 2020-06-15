@@ -12,16 +12,17 @@ import {
   FormGroup,
   FormControl,
 } from "@angular/forms";
-import { IBookmark } from "src/app/models/bookmark.interface";
-import { IFormState, IGroup } from "src/app/store/state/form.state";
+import { IBookmark } from "../../models/bookmark.interface";
+import { IGroup } from "../../models/group.interface";
+import { IFormState } from "../../store/state/form.state";
 import { Action } from "@ngrx/store";
 import { distinctUntilChanged } from "rxjs/operators";
 import {
   formNameChanged,
   formUrlChanged,
   formGroupChanged,
-} from "src/app/store/actions/form.actions";
-import { IAppState } from "src/app/store/state/app.state";
+} from "../../store/actions/form.actions";
+import { IAppState } from "../../store/state/app.state";
 
 @Component({
   selector: "app-bookmark-form",
@@ -29,8 +30,7 @@ import { IAppState } from "src/app/store/state/app.state";
   styleUrls: ["./bookmark-form.component.scss"],
 })
 export class BookmarkFormComponent implements OnInit {
-  @Input() data: IBookmark;
-  groups: IGroup[] = [];
+  @Input() groups: IGroup[];
 
   @Input() form: IFormState = {};
   @Output() actionsEmitted: EventEmitter<Action[]> = new EventEmitter();
@@ -52,10 +52,6 @@ export class BookmarkFormComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder) {
-    this.groups = [
-      { id: "work", name: "Work" },
-      { id: "personal", name: "Personal" },
-    ];
   }
 
   ngOnInit(): void {

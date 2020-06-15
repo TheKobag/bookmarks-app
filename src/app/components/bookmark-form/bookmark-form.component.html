@@ -1,15 +1,15 @@
 <form class="bookmark-form" [formGroup]="bookmarkForm" (ngSubmit)="onSubmit()">
   <mat-form-field color="accent">
     <mat-label>Name</mat-label>
-    <input matInput [formControl]="bookmarkForm.controls['name']" />
+    <input matInput formControlName="name" />
   </mat-form-field>
   <mat-form-field color="accent">
     <mat-label>Url</mat-label>
-    <input matInput [formControl]="bookmarkForm.controls['url']" />
+    <input matInput formControlName="url" />
   </mat-form-field>
   <mat-form-field color="accent">
     <mat-label>Group</mat-label>
-    <mat-select [formControl]="bookmarkForm.controls['group']">
+    <mat-select formControlName="group">
       <mat-option *ngFor="let group of groups" [value]="group">
         {{ group.name }}
       </mat-option>

@@ -1,11 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { IBookmark } from "src/app/models/bookmark.interface";
+import { IBookmark } from "../../models/bookmark.interface";
+import { IGroup } from "../../models/group.interface";
 import { MatDialog } from "@angular/material/dialog";
 import { BookmarkModalComponent } from "../bookmark-modal/bookmark-modal.component";
 import { Store, select } from "@ngrx/store";
-import { IAppState } from "src/app/store/state/app.state";
-import { IFormState } from "src/app/store/state/form.state";
-import { AddBookmarkAction, RemoveBookmarkAction } from "src/app/store/actions/bookmark.actions";
+import { IAppState } from "../../store/state/app.state";
+import { IFormState } from "../../store/state/form.state";
+import { AddBookmarkAction, RemoveBookmarkAction } from "../../store/actions/bookmark.actions";
 
 @Component({
   selector: "app-bookmarks-list",
@@ -16,6 +17,8 @@ export class BookmarksListComponent implements OnInit {
   @Input() bookmarks: IBookmark[];
   @Output() removeBookmark: EventEmitter<IBookmark> = new EventEmitter();
   @Output() addBookmark: EventEmitter<IBookmark> = new EventEmitter();
+  groups: IGroup[] = [];
+  newGroup: string;
 
   public formState: IFormState;
 
@@ -25,6 +28,11 @@ export class BookmarksListComponent implements OnInit {
       this.store.pipe(select((e) => e.form)).subscribe((fs) => {
         this.formState = fs;
       });
+
+    this.groups = [
+      { id: "work", name: "Work" },
+      { id: "personal", name: "Personal" },
+    ];
     }
 
   ngOnInit(): void {}
@@ -33,7 +41,8 @@ export class BookmarksListComponent implements OnInit {
 
   openAddBookmarkDialog() {
     const dialogRef = this.dialog.open(BookmarkModalComponent, {
-      width: "250px"
+      width: "250px",
+      data: this.groups
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -48,6 +57,10 @@ export class BookmarksListComponent implements OnInit {
     });
   }
 
+addGroup() {
+  this.groups.push({id: this.newGroup, name: this.newGroup});
+  this.newGroup = null;
+}
   remove(bookmark) {
     this.removeBookmark.next(bookmark);
   }
