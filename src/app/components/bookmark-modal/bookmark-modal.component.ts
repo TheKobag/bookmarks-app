@@ -1,10 +1,9 @@
-import { Component, OnInit, Inject, Output, EventEmitter } from "@angular/core";
+import { Component, EventEmitter, Inject, OnInit, Output } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { IBookmark } from "../../models/bookmark.interface";
+import { Action, select, Store } from "@ngrx/store";
 import { IGroup } from "../../models/group.interface";
-import { IFormState } from "../../store/state/form.state";
-import { Store, select, Action } from "@ngrx/store";
 import { IAppState } from "../../store/state/app.state";
+import { IFormState } from "../../store/state/form.state";
 
 @Component({
   selector: "app-bookmark-modal",
@@ -27,7 +26,6 @@ export class BookmarkModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data)
     this.groups = this.data;
   }
 

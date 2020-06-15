@@ -9,8 +9,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 // REDUX
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { EffectsModule } from "@ngrx/effects";
-// import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { appReducers } from "./store/reducers/app.reducers";
+import { BookmarkEffects } from "./store/effects/bookmark.effects";
 
 // APP
 import { environment } from "../environments/environment";
@@ -20,7 +20,6 @@ import { CoreModule } from "./core/core.module";
 // Components
 import { DashboardComponent } from "./containers/dashboard/dashboard.component";
 import { BookmarksListComponent } from "./components/bookmarks-list/bookmarks-list.component";
-import { BookmarkEffects } from "./store/effects/bookmark.effects";
 import { BookmarkModalComponent } from "./components/bookmark-modal/bookmark-modal.component";
 import { BookmarkFormComponent } from "./components/bookmark-form/bookmark-form.component";
 
@@ -51,7 +50,6 @@ import { MatSelectModule } from "@angular/material/select";
     HttpClientModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot([BookmarkEffects]),
-    // StoreRouterConnectingModule.forRoot({ stateKey: "router" }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     FormsModule,
     ReactiveFormsModule,

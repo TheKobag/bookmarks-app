@@ -1,7 +1,6 @@
 import { IBookmarkState, initialBookmarkState } from './bookmark.state';
 import { IFormState, initialFormState } from './form.state';
 
-
 export interface IAppState {
   bookmarks: IBookmarkState;
   form?: IFormState;

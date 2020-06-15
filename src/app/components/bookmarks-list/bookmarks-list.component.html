@@ -1,5 +1,5 @@
 <mat-tab-group mat-align-tabs="start">
-  <mat-tab label="{{gr.name}}" *ngFor="let gr of groups">
+  <mat-tab label="{{ gr.name }}" *ngFor="let gr of groups">
     <div class="cards-wrapper">
       <div *ngFor="let bm of bookmarks">
         <div *ngIf="bm.group == gr.name" class="card-wrapper">
@@ -17,21 +17,19 @@
       </div>
     </div>
 
-<button
-  mat-fab
-  color="primary"
-  class="bookmark-button"
-  (click)="openAddBookmarkDialog()"
->
-  <mat-icon>bookmark</mat-icon>
-</button>
+    <button mat-fab color="primary" class="bookmark-button" (click)="openAddBookmarkDialog()">
+      <mat-icon>bookmark</mat-icon>
+    </button>
   </mat-tab>
+
   <mat-tab disabled>
-   <ng-template mat-tab-label>
-     <button mat-icon-button (click)="addGroup()" [disabled]="!newGroup" color="primary">
-       <mat-icon>add_circle</mat-icon>
-     </button>
-     <input matInput color="secondary" placeholder="type to create a new group" [(ngModel)]="newGroup"/>
-   </ng-template>
+    <ng-template mat-tab-label>
+      <button mat-icon-button (click)="addGroup()" [disabled]="!newGroup" color="primary">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+      <mat-form-field color="accent">
+        <input matInput color="secondary" [(ngModel)]="newGroup"/>
+      </mat-form-field>
+    </ng-template>
   </mat-tab>
 </mat-tab-group>

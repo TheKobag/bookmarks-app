@@ -1,6 +1,6 @@
 .cards-wrapper {
   display: flex;
-  
+  flex-flow: wrap;
   .card-wrapper {
     display: flex;
     flex-flow: column;

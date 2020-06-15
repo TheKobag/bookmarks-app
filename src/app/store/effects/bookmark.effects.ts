@@ -1,15 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Effect, ofType, Actions } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-
-import {
-  GetBookmarksSuccess,
-  EBookmarkActions,
-  GetBookmarks
-} from '../actions/bookmark.actions';
-import { BookmarkService } from '../../services/bookmark.service';
 import { IBookmarkHttp } from '../../models/http-models/bookmark-http.interface';
+import { BookmarkService } from '../../services/bookmark.service';
+import { EBookmarkActions, GetBookmarks, GetBookmarksSuccess } from '../actions/bookmark.actions';
 
 @Injectable()
 export class BookmarkEffects {

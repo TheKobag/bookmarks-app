@@ -16,14 +16,7 @@
     </mat-select>
   </mat-form-field>
   <div class="form-buttons-wrapper">
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="!bookmarkForm.valid"
-    >
-      Submit
-    </button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!bookmarkForm.valid">Submit</button>
     <button mat-raised-button (click)="onCancel()">Cancel</button>
   </div>
 </form>

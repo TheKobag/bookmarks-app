@@ -1,28 +1,10 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  SimpleChanges,
-} from "@angular/core";
-import {
-  FormBuilder,
-  Validators,
-  FormGroup,
-  FormControl,
-} from "@angular/forms";
-import { IBookmark } from "../../models/bookmark.interface";
-import { IGroup } from "../../models/group.interface";
-import { IFormState } from "../../store/state/form.state";
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from "@angular/core";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Action } from "@ngrx/store";
 import { distinctUntilChanged } from "rxjs/operators";
-import {
-  formNameChanged,
-  formUrlChanged,
-  formGroupChanged,
-} from "../../store/actions/form.actions";
-import { IAppState } from "../../store/state/app.state";
+import { IGroup } from "../../models/group.interface";
+import { formGroupChanged, formNameChanged, formUrlChanged} from "../../store/actions/form.actions";
+import { IFormState } from "../../store/state/form.state";
 
 @Component({
   selector: "app-bookmark-form",
@@ -31,8 +13,8 @@ import { IAppState } from "../../store/state/app.state";
 })
 export class BookmarkFormComponent implements OnInit {
   @Input() groups: IGroup[];
-
   @Input() form: IFormState = {};
+
   @Output() actionsEmitted: EventEmitter<Action[]> = new EventEmitter();
   @Output() formSubmitted: EventEmitter<{}> = new EventEmitter();
   @Output() formCancelled: EventEmitter<{}> = new EventEmitter();
@@ -51,8 +33,7 @@ export class BookmarkFormComponent implements OnInit {
     }),
   });
 
-  constructor(private fb: FormBuilder) {
-  }
+  constructor() {}
 
   ngOnInit(): void {
     this.bookmarkForm.controls["name"].valueChanges

@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { select, Store } from "@ngrx/store";
 import { IBookmark } from "../../models/bookmark.interface";
 import { IGroup } from "../../models/group.interface";
-import { MatDialog } from "@angular/material/dialog";
-import { BookmarkModalComponent } from "../bookmark-modal/bookmark-modal.component";
-import { Store, select } from "@ngrx/store";
 import { IAppState } from "../../store/state/app.state";
 import { IFormState } from "../../store/state/form.state";
-import { AddBookmarkAction, RemoveBookmarkAction } from "../../store/actions/bookmark.actions";
+import { BookmarkModalComponent } from "../bookmark-modal/bookmark-modal.component";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-bookmarks-list",

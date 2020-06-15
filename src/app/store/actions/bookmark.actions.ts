@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-
 import { IBookmark } from '../../models/bookmark.interface';
 
 export enum EBookmarkActions {

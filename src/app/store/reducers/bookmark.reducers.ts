@@ -1,6 +1,6 @@
-import { EBookmarkActions } from "./../actions/bookmark.actions";
 import { BookmarkActions } from "../actions/bookmark.actions";
-import { initialBookmarkState, IBookmarkState } from "../state/bookmark.state";
+import { IBookmarkState, initialBookmarkState } from "../state/bookmark.state";
+import { EBookmarkActions } from "./../actions/bookmark.actions";
 
 export const bookmarkReducers = (
   state = initialBookmarkState,

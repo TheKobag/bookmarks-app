@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { AddBookmarkAction, GetBookmarks, RemoveBookmarkAction } from '../../store/actions/bookmark.actions';
 import { selectBookmarkList } from '../../store/selectors/bookmark.selector';
 import { IAppState } from '../../store/state/app.state';
-import { GetBookmarks, RemoveBookmarkAction, AddBookmarkAction } from '../../store/actions/bookmark.actions';
 
 @Component({
   selector: 'app-dashboard',

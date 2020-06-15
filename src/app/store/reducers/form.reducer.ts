@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { FORM_URL_CHANGED, IFormUrlChangedAction, FORM_GROUP_CHANGED, IFormGroupChangedAction, FORM_NAME_CHANGED, IFormNameChangedAction } from '../actions/form.actions';
+import { FORM_GROUP_CHANGED, FORM_NAME_CHANGED, FORM_URL_CHANGED, IFormGroupChangedAction, IFormNameChangedAction, IFormUrlChangedAction } from '../actions/form.actions';
 import { IFormState, initialFormState } from '../state/form.state';
 
 export function formReducer(state: IFormState = initialFormState, action: Action): IFormState {

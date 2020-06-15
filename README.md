@@ -7,9 +7,10 @@ The application is structured in four main components,
 
   </br>
   BookmarksList Component, renders the data retrieved by the store and controls the form modal. The data grouping should be improved by the use and implementation of some filtering pipe to avoid the renderization of non-visible elements.
-  It should use an isolated component to render cards, and EDIT functionallity should open the modal form window containing the values of the chosen bookmark to edit (and should manage the update of the bookmark with a new action).
+  It should use an isolated component to render cards, and EDIT functionallity should open the modal form window containing the values of the chosen bookmark to edit (and should manage the update of the bookmark with a new action). It's also de manager of adding new groups to our view.
 
   ![List](/src/assets/images/list.png)
+
   
   </br>
   BookmarkModal Component, renders the modal and it's the manager of sending actions whenever an input has been modified.
@@ -43,12 +44,23 @@ Initial State
 
 </br>
 
+Start typing to create a new group, the button will be enabled when something is typed.
+
+![List](/src/assets/images/new-group.png)
+
+</br>
+
+And the item will be added to the groups.
+
+![List](/src/assets/images/new-group2.png)
+
+</br>
+
 Click on Add button to open the form
 
 ![List](/src/assets/images/add.png)
 
 </br>
-
 
 Enter the data for the new bookmark (all fields are required, so Submit button would be disabled until all fields are filled).
 
